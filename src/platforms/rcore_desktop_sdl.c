@@ -1736,8 +1736,8 @@ void PollInputEvents(void)
             {
                 if (CORE.Input.Mouse.cursorLocked)
                 {
-                    CORE.Input.Mouse.currentPosition.x = (float)event.motion.xrel;
-                    CORE.Input.Mouse.currentPosition.y = (float)event.motion.yrel;
+                    CORE.Input.Mouse.currentPosition.x += (float)event.motion.xrel; // Accumulate relative mouse motion across all polled events
+                    CORE.Input.Mouse.currentPosition.y += (float)event.motion.yrel;
                     CORE.Input.Mouse.previousPosition = (Vector2){ 0.0f, 0.0f };
                 }
                 else
